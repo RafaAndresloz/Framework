@@ -1,0 +1,15 @@
+Options All -Indexes
+// Esta línea se utiliza para deshabilitar la visualización de los índices de directorios.
+
+RewriteEngine On
+//permite la manipulación de URLs
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+//toma todo lo que viene después del nombre de dominio y pasarlo como un parámetro GET con el nombre url a index.php
